@@ -6,7 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateEventsTable' => $baseDir . '/database/migrations/2017_09_12_070611_create_events_table.php',
+    'CreateEventsUsersPivot' => $baseDir . '/database/migrations/2017_09_12_070650_create_events_users_pivot.php',
+    'CreateLocationsTable' => $baseDir . '/database/migrations/2017_09_12_070613_create_locations_table.php',
+    'CreateUsersTable' => $baseDir . '/database/migrations/2017_09_12_070610_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'EventTableSeeder' => $baseDir . '/database/seeds/EventTableSeeder.php',
+    'EventUserPivotSeeder' => $baseDir . '/database/seeds/EventUserPivotSeeder.php',
     'ExampleTest' => $baseDir . '/tests/ExampleTest.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
@@ -614,4 +620,5 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
+    'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',
 );

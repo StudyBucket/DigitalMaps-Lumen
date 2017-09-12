@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
-{
+class User extends Model implements AuthenticatableContract, AuthorizableContract {
     use Authenticatable, Authorizable;
 
     /**
@@ -18,7 +17,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'mail', 'personal_data', 'location_id',
     ];
 
     /**
@@ -29,4 +28,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    public function location(){
+        return $this->morphMany('App\Location', 'locatable');
+    }
+
+    public function events(){
+        return $this->belongsToMany('App\Event')->withPivot('follows', 'attended');
+    }
 }

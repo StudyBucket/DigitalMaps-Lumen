@@ -12,5 +12,24 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return \App\User::all();
 });
+
+$router->get('/test', function () use ($router) {
+		$uid  = App\User::select('id')->orderByRaw("RAND()")->first()->id;
+    $user = App\User::find($uid );
+
+    echo $user->name;
+		foreach ($user->events as $event) {
+		    echo "<br>".$event->title;
+		    if($event->pivot->follows == 1){
+		    	echo "*";
+		    }
+
+		    if($event->pivot->attended == 1){
+		    	echo "+";
+		    }
+		}
+});
+
+

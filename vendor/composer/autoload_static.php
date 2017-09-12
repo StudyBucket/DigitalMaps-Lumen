@@ -308,7 +308,13 @@ class ComposerStaticInitacc6638c44b39a692432153e92b35b2a
     );
 
     public static $classMap = array (
+        'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_070611_create_events_table.php',
+        'CreateEventsUsersPivot' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_070650_create_events_users_pivot.php',
+        'CreateLocationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_070613_create_locations_table.php',
+        'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_12_070610_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'EventTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EventTableSeeder.php',
+        'EventUserPivotSeeder' => __DIR__ . '/../..' . '/database/seeds/EventUserPivotSeeder.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
@@ -916,6 +922,7 @@ class ComposerStaticInitacc6638c44b39a692432153e92b35b2a
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

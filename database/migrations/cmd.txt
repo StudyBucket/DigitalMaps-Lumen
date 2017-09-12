@@ -1,0 +1,5 @@
+php artisan make:migration create_users_table --create=users
+php artisan make:migration create_events_table --create=events
+php artisan make:migration create_locations_table --create=locations
+
+php artisan make:migration create_events_users_pivot --create=events_users
