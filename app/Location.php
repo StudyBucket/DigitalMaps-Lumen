@@ -12,7 +12,7 @@ class Location extends Model {
      * @var array
      */
     protected $fillable = [
-
+        'title', 'lat', 'lng', 'locatable_id', 'locatable_type'
     ];
 
     /**

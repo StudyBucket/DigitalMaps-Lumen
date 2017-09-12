@@ -33,3 +33,34 @@ $router->get('/test', function () use ($router) {
 });
 
 
+$router->group(['prefix' => 'api/v1'], function($router){
+
+	$router->post('user','UserCtrl@create');
+	$router->post('user/{id}','UserCtrl@update');
+	$router->get('user/{id}','UserCtrl@read');
+	$router->delete('user/{id}','UserCtrl@delete');
+	$router->get('user','UserCtrl@index');
+
+});
+
+
+$router->group(['prefix' => 'api/v1'], function($router){
+
+	$router->post('event','EventCtrl@create');
+	$router->post('event/{id}','EventCtrl@update');
+	$router->get('event/{id}','EventCtrl@read');
+	$router->delete('event/{id}','EventCtrl@delete');
+	$router->get('event','EventCtrl@index');
+
+});
+
+
+$router->group(['prefix' => 'api/v1'], function($router){
+
+	$router->post('location','LocationCtrl@create');
+	$router->post('location/{id}','LocationCtrl@update');
+	$router->get('location/{id}','LocationCtrl@read');
+	$router->delete('location/{id}','LocationCtrl@delete');
+	$router->get('location','LocationCtrl@index');
+
+});

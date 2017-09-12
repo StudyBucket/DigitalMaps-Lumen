@@ -12,12 +12,14 @@ class UserTableSeeder extends Seeder {
          User::create([
              'name' => 'Pete Houston',
              'username' => 'petehouston',
-             'password' => 'password'
+             'password' => app('hash')->make('password'),
+             'mail' => 'pete.h@hki.example',
          ]);
         User::create([
             'name' => 'Taylor Otwell',
             'username' => 'taylorotwell',
-            'password' => 'password'
+            'password' => app('hash')->make('password'),
+            'mail' => 'taylor.o@hki.example',
         ]);
     }
 }
