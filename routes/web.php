@@ -41,6 +41,9 @@ $router->group(['prefix' => 'api/v1'], function($router){
 	$router->delete('user/{id}','UserCtrl@delete');
 	$router->get('user','UserCtrl@index');
 
+	$router->get('user/{id}/attended','UserCtrl@getAttended');
+	$router->get('user/{id}/followed','UserCtrl@getFollowed');
+
 });
 
 
@@ -51,6 +54,9 @@ $router->group(['prefix' => 'api/v1'], function($router){
 	$router->get('event/{id}','EventCtrl@read');
 	$router->delete('event/{id}','EventCtrl@delete');
 	$router->get('event','EventCtrl@index');
+
+	$router->get('event/{id}/attendants','EventCtrl@getAttendants');
+	$router->get('event/{id}/followers','EventCtrl@getFollowers');
 
 });
 

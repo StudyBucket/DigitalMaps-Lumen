@@ -32,7 +32,13 @@ class LocationCtrl extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
+        
+        $location = Location::create($request->all());
 
+        $addressString = $request->input('title');
+        $location->geocode($addressString);
+
+        /*
         if(!$request->input('lat') || !$request->input('lat')){
 
             // address to map
@@ -47,8 +53,8 @@ class LocationCtrl extends Controller
             $request['lat'] = $lat;
             $request['lng'] = $lng;
         }
+        */
         
-        $location = Location::create($request->all());
         return response()->json($location);
     }
 

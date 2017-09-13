@@ -30,7 +30,7 @@ class UserCtrl extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
-        
+
         $request['password'] = app('hash')->make($request->input('password'));
         $user = User::create($request->all());
         return response()->json($user);
@@ -73,5 +73,26 @@ class UserCtrl extends Controller
     public function index(){
         $users  = User::all();
         return response()->json($users);
+    }
+
+
+    // Additional Query Functions
+
+    public function getAttended($id){
+        if(User::find($id)) {
+            $events = User::find($id)->events()->where('event_user.attended', 1)->get();
+            $events->load('Location');
+            return $events;  
+        }
+        return [];     
+    }
+
+     public function getFollowed($id){
+        if(User::find($id)) {
+            $events = User::find($id)->events()->where('event_user.follows', 1)->get();
+            $events->load('Location');
+            return $events;  
+        }
+        return [];     
     }
 }

@@ -69,4 +69,36 @@ class EventCtrl extends Controller
         $events  = Event::all();
         return response()->json($events);
     }
+
+
+    // Additional Query Functions
+
+    public function getAttendants($id){
+        if(Event::find($id)) {
+            $attendants = Event::find($id)->users()->where('event_user.attended', 1)->get();
+            $attendants->load('Location');
+            return $attendants;  
+        }
+        return [];     
+    }
+
+     public function getFollowers($id){
+        if(Event::find($id)) {
+            $followers = Event::find($id)->users()->where('event_user.follows', 1)->get();
+            $followers->load('Location');
+            return $followers;  
+        }
+        return [];     
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
