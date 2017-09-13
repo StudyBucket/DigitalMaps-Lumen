@@ -72,6 +72,7 @@ class UserCtrl extends Controller
 
     public function index(){
         $users  = User::all();
+        $users->load('Location');
         return response()->json($users);
     }
 

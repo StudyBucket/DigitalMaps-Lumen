@@ -26,7 +26,7 @@ class LocationCtrl extends Controller
             'lat' => 'nullable',
             'lng' => 'nullable',
             'locatable_id' => 'required|numeric',
-            'locatable_type' => ['required', Rule::in(['Event', 'User'])],
+            'locatable_type' => ['required', Rule::in(['App\Event', 'App\User'])],
         ]);
 
         if ($validator->fails()) {
@@ -36,7 +36,7 @@ class LocationCtrl extends Controller
         $location = Location::create($request->all());
 
         $addressString = $request->input('title');
-        $location->geocode($addressString);
+        $location->geocode();
 
         /*
         if(!$request->input('lat') || !$request->input('lat')){

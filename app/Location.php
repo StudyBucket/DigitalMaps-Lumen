@@ -43,5 +43,6 @@ class Location extends Model {
         // write 
         $this->lat = $result['lat'];
         $this->lng = $result['lng'];
+        $this->save();
     }
 }
