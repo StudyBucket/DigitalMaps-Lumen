@@ -66,7 +66,8 @@ class EventCtrl extends Controller
     } 
 
     public function index(){
-        $events  = Event::all();
+        $events = Event::all();
+        $events->load('Location');
         return response()->json($events);
     }
 
